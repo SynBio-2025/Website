@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="28" height="28">
+
+<defs>
+            <clipPath  id="1">
+
+                <path clip-rule="evenodd" transform="matrix(1 0 -0 -1 -54.35385 434.2714)"  d="M0 0L649.1339 0L649.1339 459.2126L0 459.2126L0 0z" />            </clipPath>
+                <clipPath  id="2">
+
+                    <path clip-rule="evenodd" transform="matrix(1 0 -0 -1 -54.35385 434.2714)"  d="M26.01957 336.9191L248.79907 336.9191L248.79907 411.99136L26.01957 411.99136L26.01957 336.9191z" />                </clipPath>
+                <clipPath  id="3">
+
+                    <path clip-rule="evenodd" transform="matrix(1 0 -0 -1 -54.35385 434.2714)"  d="M29.40934 435.2959L29.40934 400.6236L198.3564 400.6236L198.3564 435.2959" />                </clipPath>
+                    <clipPath  id="4">
+
+                        <path clip-rule="evenodd" transform="matrix(1 0 -0 -1 -54.35385 434.2714)"  d="M29.40934 401.7191L197.29324 401.7191L197.29324 435.29587L29.40934 435.29587L29.40934 401.7191z" />                    </clipPath>
+</defs>
+
+<g transform="matrix(2.7359512 0 0 2.7359512 7.305779E-05 -0)">
+	<g>
+		<g clip-path="url(#1)" >
+            <path transform="matrix(1 0 -0 -1 -54.35385 434.2714)"  d="M0 -0.7874146L650 -0.7874146L650 459.2126L0 459.2126L0 -0.7874146z" stroke="none" fill="#FFFFFF" fill-rule="nonzero" />
+			<g>
+			</g>
+			<g>
+			</g>
+			<g clip-path="url(#2)" >
+				<text transform="matrix(1 0 -0 1 -24.944511 32.552307)" x="0" y="0" style="fill:#000000;font-family:ABeeZee;" font-size="11">
+
+				</text>
+			</g>
+			<g clip-path="url(#3)" >
+				<g clip-path="url(#4)" >
+                    <path transform="matrix(0.06031669 0 0 0.06147561 -24.944511 -1.0245056)"  d="M561 107C 558 141 527 165 493 162C 459 158 434 127 438 93C 442 59 472 34 506 38C 541 42 565 72 561 107z" stroke="#FF6600" stroke-width="36" fill="none" />
+                    <path transform="matrix(0.06031669 0 0 0.06147561 -24.944511 -1.0245056)"  d="M502 102L431 35" stroke="#FFFFFF" stroke-width="20" fill="none" />
+                    <path transform="matrix(0.06031669 0 0 0.06147561 -24.944511 -1.0245056)"  d="M526 -4L502 102" stroke="#FFFFFF" stroke-width="18" stroke-linecap="square" fill="none" />
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

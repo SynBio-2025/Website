@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SynBio Team 2025</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+input:focus {
+outline: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.masonry-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+grid-gap: 24px;
+grid-auto-flow: dense;
+}
+.project-card:nth-child(3n+1) {
+grid-row: span 1;
+}
+.project-card:nth-child(3n+2) {
+grid-row: span 2;
+}
+.project-card:nth-child(3n+3) {
+grid-row: span 1;
+}
+.timeline-item::before {
+content: '';
+position: absolute;
+left: -5px;
+top: 0;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: #3b82f6;
+z-index: 1;
+}
+.timeline-item::after {
+content: '';
+position: absolute;
+left: 0;
+top: 10px;
+width: 1px;
+height: calc(100% + 16px);
+background-color: #e5e7eb;
+}
+.timeline-item:last-child::after {
+display: none;
+}
+/* Ab hier css animierter button */
+.super-button{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+}
+.super-button::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, #7c3aed, #7c3aed, #7c3aed);
+    animation: rotate 4s linear infinite;
+    z-index: -2;
+}
+.super-button::after{
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #0a0a0a;
+    border-radius: inherit;
+    z-index: -1;
+}
+.super-button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+.super-button:hover .arrow{
+    transform: translateX(6px);
+}
+.arrow{
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease-in-out;
+    color: #7c3aed;
+}
+@keyframes rotate{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        rotate: rotate(360deg);
+    }
+}
+
+
+</style>
+</head>
+<body class="bg-violet-200 min-h-screen"> <!-- Hier white-->
+<!-- Header-->
+<header class="sticky top-0 z-50 bg-violet-200 shadow-sm">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">
+    <img src="images/logo_neu.png" alt="Home" class="h-16 w-auto">
+</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-violet-700 font-medium flex items-center">Home</a>
+<a href="project.html" class="text-gray-500 hover:text-violet-700 transition-colors">Projekt</a>
+<div class="relative" id="groupsDropdown">
+<button class="text-gray-500 hover:text-violet-700 transition-colors flex items-center" id="groupsButton">
+Gruppen
+<i class="ri-arrow-down-s-line ml-1"></i>
+</button>
+<div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden" id="groupsMenu">
+<a href="students.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Mitglieder</a>
+<a href="groups.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-50">Gruppen</a>
+</div>
+</div>
+<a href="contact.html" class="text-gray-500 hover:text-violet-700 transition-colors">Kontakt</a>
+<a href="loginmain.html" class="text-gray-500 hover:text-violet-700 transition-colors">Login</a>
+</nav>
+<div class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</div>
+</div>
+</header>
+<!-- Reiter -->
+<section class="hero-section relative h-[600px] flex items-center" style="background-image: url('images/gruppe.jpg')">
+<div class="absolute inset-0 bg-gradient-to-r from-white/90 to-white/20"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">SynBio Team</h1>
+<p class="text-lg md:text-xl text-gray-700 mb-8">Beschreibung einfügen.</p>
+<div class="flex flex-wrap gap-4">
+<!-- <a href="project.html">
+<button class="bg-white text-violet-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-white/90 transition-colors">Das Projekt</button>
+</a> -->
+<a href="project.html">
+  <button class="super-button">
+    Das Projekt
+    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+</a>
+<a href="students.html">
+<button class="bg-white text-violet-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-white/90 transition-colors">Das Team</button>
+</a>
+</div>
+</div>
+</div>
+</section>
+<hr>
+<!-- Kurze Projektbeschreibung -->
+<section class="py-20 bg-violet-300"> <!-- Hier white -->
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<div class="bg-violet-300 rounded-lg overflow-hidden shadow-sm">
+<div class="relative h-[400px]">
+<img src="images/logo_neu.png" alt="Eco-Friendly Packaging Project" class="w-full h-full object-cover object-top">
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/60 to-transparent">
+<span class="inline-block text-xs font-semibold text-white bg-primary/90 px-3 py-1 rounded-full mb-3">PGM-Bioleaeching</span>
+<h1 class="text-3xl md:text-4xl font-bold text-white">Text einfügen</h1>
+</div>
+</div><div class="prose max-w-none">
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Projekt Overview</h2>
+<p class="text-gray-600 mb-6">Kurze Beschreibung einfügen.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-gray-50 p-6 rounded-lg">
+<h3 class="text-lg font-semibold text-gray-900 mb-3">Vorteile durch Bioleaching</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Umweltschonend</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Billig</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Schnell</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+<span>Ungefährlich oder so</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-50 p-6 rounded-lg">
+<h3 class="text-lg font-semibold text-gray-900 mb-3">Andere Liste für Optik</h3>
+<ul class="space-y-2 text-gray-600">
+<li class="flex items-start">
+<i class="ri-number-1"></i>
+<span>Stichpunkt 1</span>
+</li>
+<li class="flex items-start">
+<i class="ri-number-2"></i>
+<span>Stichpunkt 2</span>
+</li>
+<li class="flex items-start">
+<i class="ri-number-3"></i>
+<span>Stichpunkt 3</span>
+</li>
+<li class="flex items-start">
+<i class="ri-number-4"></i>
+<span>Stichpunkt 4</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="mb-8">
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Hier Bilder für Optik</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<img src="images/poster_igem.jpeg" alt="igemposter" class="w-full rounded-lg">
+<img src="images/stand_tdw_1.jpg" alt="stand_tdw_1" class="w-full rounded-lg">
+<img src="images/mairec.jpeg" alt="mairec" class="w-full rounded-lg">
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-semibold text-gray-900 mb-4">Awards</h2>
+<div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-6">
+<div class="flex items-center p-4 bg-gray-50 rounded-lg">
+<i class="ri-award-line text-primary ri-2x mr-4"></i>
+<div>
+<h4 class="font-semibold text-gray-900">iGem Awards</h4>
+<p class="text-gray-600">Beschreibung einfügen falls wir was gewinnen</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Untergruppen -->
+<section class="py-20 bg-violet-400">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-violet-50 mb-3">Untergruppen</h2>
+<p class="text-violet-50 max-w-2xl mx-auto">Das Projekt wird durch verschiedene Gruppen vorangebracht.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Biotech -->
+<div class="bg-violet-50 rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-40 bg-[url('images/gruppe.jpg')] bg-cover bg-center relative">
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/50 to-transparent">
+<h3 class="text-xl font-semibold text-violet-50">BioTech</h3>
+</div>
+</div>
+<div class="p-6">
+<p class="text-gray-600 mb-4">Texte einfügen.</p>
+<div class="flex -space-x-2 mb-4">
+<img src="images/imgmiss.jpeg" alt="Noemi Reusing" class="w-10 h-10 rounded-full border-2 border-white">
+<img src="images/imgmiss.jpeg" alt="Yazan Ahmad" class="w-10 h-10 rounded-full border-2 border-white">
+<img src="images/imgmiss.jpeg" alt="Alexander Hene" class="w-10 h-10 rounded-full border-2 border-white">
+<div class="w-10 h-10 rounded-full bg-gray-100 border-2 border-white flex items-center justify-center text-xs text-gray-500 font-medium">et al</div>
+</div>
+<div class="mt-4 pt-4 border-t border-gray-100">
+<a href="groups.html#biotech" class="text-primary font-medium hover:underline flex items-center">
+<span>Siehe BioTech</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Chemie -->
+<div class="bg-violet-50 rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-40 bg-[url('images/gruppe.jpg')] bg-cover bg-center relative">
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/50 to-transparent">
+<h3 class="text-xl font-semibold text-violet-50">Chemie</h3>
+</div>
+</div>
+<div class="p-6">
+<p class="text-gray-600 mb-4">Text einfügen.</p>
+<div class="flex -space-x-2 mb-4">
+<img src="images/imgmiss.jpeg" alt="Nathanael Strom" class="w-10 h-10 rounded-full border-2 border-white">
+<img src="images/imgmiss.jpeg" alt="Daniel Ringel" class="w-10 h-10 rounded-full border-2 border-white">
+<img src="images/imgmiss.jpeg" alt="Johannes Meingast" class="w-10 h-10 rounded-full border-2 border-white">
+<div class="w-10 h-10 rounded-full bg-gray-100 border-2 border-white flex items-center justify-center text-xs text-gray-500 font-medium">et al</div>
+</div>
+<div class="mt-4 pt-4 border-t border-gray-100">
+<a href="groups.html#chemie" class="text-primary font-medium hover:underline flex items-center">
+<span>Siehe Chemie</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Finanzen -->
+<div class="bg-violet-50 rounded-lg border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-40 bg-[url('images/gruppe.jpg')] bg-cover bg-center relative">
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/50 to-transparent">
+<h3 class="text-xl font-semibold text-violet-50">PR</h3>
+</div>
+</div>
+<div class="p-6">
+<p class="text-gray-600 mb-4">Text einfügen.</p>
+<div class="flex -space-x-2 mb-4">
+<img src="images/imgmiss.jpeg" alt="Theresa Maurer" class="w-10 h-10 rounded-full border-2 border-white">
+<img src="images/imgmiss.jpeg" alt="Person 1" class="w-10 h-10 rounded-full border-2 border-white">
+<img src="images/imgmiss.jpeg" alt="Person 2" class="w-10 h-10 rounded-full border-2 border-white">
+<div class="w-10 h-10 rounded-full bg-gray-100 border-2 border-white flex items-center justify-center text-xs text-gray-500 font-medium">et al</div>
+</div>
+<div class="mt-4 pt-4 border-t border-gray-100">
+<a href="groups.html#finanzen" class="text-primary font-medium hover:underline flex items-center">
+<span>Siehe Finanzen</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a href="groups.html">
+<button class="bg-violet-50 text-violet-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-violet-50 transition-colors">Siehe alle Gruppen</button>
+</a>
+</div>
+</div>
+</section>
+<!-- Sponsoren -->
+<section class="py-16 bg-violet-600"> <!-- Hier white -->
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-violet-50 mb-3">Unsere Sponsoren</h2>
+<p class="text-violet-50 max-w-2xl mx-auto">Wir freuen uns hier unsere Sponsoren vorzustellen.</p>
+</div>
+<div class="relative overflow-hidden">
+<div class="sponsor-slider flex transition-transform duration-500 ease-in-out">
+<div class="sponsor-slide min-w-full grid grid-cols-4 gap-8 items-center px-4">
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<a href="https://gigabases.com/">
+<img src="images/gigabases.svg" alt="Gigabases" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</a>
+</div>
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<a href="https://www.srcsb.uni-stuttgart.de/">
+<img src="images/srcsb.png" alt="SRCSB" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</a>
+</div>
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<a href="link fehlt">
+<img src="images/imgmiss.jpeg" alt="Sponsor 3" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</a>
+</div>
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<img src="images/imgmiss.jpeg" alt="Sponsor 4" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</div>
+</div>
+<div class="sponsor-slide min-w-full grid grid-cols-4 gap-8 items-center px-4">
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<img src="images/imgmiss.jpeg" alt="Sponsor 5" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</div>
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<img src="images/imgmiss.jpeg" alt="Sponsor 6" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</div>
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<img src="images/imgmiss.jpeg" alt="Sponsor 7" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</div>
+<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg">
+<img src="images/imgmiss.jpeg" alt="Sponsor 8" class="max-h-12 w-auto grayscale hover:grayscale-0 transition-all">
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-8 space-x-2">
+<button class="w-2 h-2 rounded-full bg-primary" id="slide1"></button>
+<button class="w-2 h-2 rounded-full bg-gray-300" id="slide2"></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Werbung -->
+<section class="py-20 bg-violet-700 text-violet-50">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Interessiert und Sie wollen uns unterstützen?</h2>
+<p class="text-lg text-white/90 mb-8">Treten Sie mit uns in Kontakt. Weiterer Text</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="contact.html">
+<button class="bg-white text-violet-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-white/90 transition-colors">Kontakt</button>
+</a>
+<a href="students.html#leader">
+<button class="bg-white text-violet-700 px-6 py-3 font-medium !rounded-button whitespace-nowrap hover:bg-white/90 transition-colors">Team-Leader</button>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Ende -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<!-- Links -->
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">
+    <img src="images/logo_neu.png" alt="Home" class="h-12 w-auto">
+</a>
+<p class="text-violet-50 font-semibold mb-6">Finde uns hier:</p>
+<div class="flex space-x-4">
+<a href="https://teams.igem.org/5829" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+  <img src="images/igem_logo.png" alt="Logo" class="w-6 h-6" />
+</a>
+<a href="https://www.instagram.com/igem_stuttgart/" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+  <img src="images/Instagram_logo_2016.svg.png" alt="Logo" class="w-6 h-6" />
+</a>
+</div>
+</div>
+<!-- Quick links -->
+<div>
+<h3 class="text-violet-50 font-semibold mb-6">Quick Links</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="project.html" class="text-gray-400 hover:text-violet-50 transition-colors">Projekt</a></li>
+<li><a href="groups.html" class="text-gray-400 hover:text-violet-50 transition-colors">Gruppen</a></li>
+<li><a href="students.html" class="text-gray-400 hover:text-violet-50 transition-colors">Mitglieder</a></li>
+<li><a href="contact.html" class="text-gray-400 hover:text-violet-50 transition-colors">Kontakt</a></li>
+</ul>
+</div>
+<!-- Kontakt -->
+<div>
+<h3 class="text-violet-50 font-semibold mb-6">Direkter Kontakt</h3>
+<ul class="space-y-3">
+<li>
+<a href="mailto:synbioteam@ibmg.uni-stuttgart.de" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+<i class="ri-mail-line mr-3 mt-1"></i>
+<span>synbioteam@ibmg.uni-stuttgart.de</span>
+</a>
+</li>
+<li>
+<a href="mailto:collaboration@studentshowcase.edu" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+<i class="ri-mail-line mr-3 mt-1"></i>
+<span>Finanzen Mail einfügen</span>
+</a>
+</li>
+<li>
+<a href="mailto:info@studentshowcase.edu" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+<i class="ri-mail-line mr-3 mt-1"></i>
+<span>IT Mail einfügen</span>
+</a>
+</li>
+<li>
+<a href="mailto:info@studentshowcase.edu" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+<i class="ri-mail-line mr-3 mt-1"></i>
+<span>Bio Mail einfügen</span>
+</a>
+</li>
+<li>
+<a href="mailto:info@studentshowcase.edu" class="text-gray-400 hover:text-violet-50 transition-colors flex items-start">
+<i class="ri-mail-line mr-3 mt-1"></i>
+<span>Chemie Mail einfügen</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Datenschutz -->
+<div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+<p>&copy; 2025 SynBio Team. All rights reserved.</p>
+<div class="flex justify-center space-x-4 mt-4">
+<a href="#" class="hover:text-violet-50 transition-colors">Privacy Policy</a>
+<a href="#" class="hover:text-violet-50 transition-colors">Terms of Service</a>
+<a href="#" class="hover:text-violet-50 transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="sponsorSliderScript">
+document.addEventListener('DOMContentLoaded', function() {
+const slider = document.querySelector('.sponsor-slider');
+const slides = document.querySelectorAll('.sponsor-slide');
+const indicators = [document.getElementById('slide1'), document.getElementById('slide2')];
+let currentSlide = 0;
+
+function updateSlider() {
+slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+indicators.forEach((indicator, index) => {
+indicator.classList.toggle('bg-primary', index === currentSlide);
+indicator.classList.toggle('bg-gray-300', index !== currentSlide);
+});
+}
+
+function nextSlide() {
+currentSlide = (currentSlide + 1) % slides.length;
+updateSlider();
+}
+
+indicators.forEach((indicator, index) => {
+indicator.addEventListener('click', () => {
+currentSlide = index;
+updateSlider();
+});
+});
+
+setInterval(nextSlide, 5000);
+});
+</script>
+<script id="navigationScript">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.querySelector('.md\\:hidden');
+const groupsButton = document.getElementById('groupsButton');
+const groupsMenu = document.getElementById('groupsMenu');
+function toggleGroupsMenu(event) {
+event.stopPropagation();
+groupsMenu.classList.toggle('hidden');
+}
+function closeGroupsMenu(event) {
+if (!document.getElementById('groupsDropdown').contains(event.target)) {
+groupsMenu.classList.add('hidden');
+}
+}
+groupsButton.addEventListener('click', toggleGroupsMenu);
+document.addEventListener('click', closeGroupsMenu);
+const mobileMenu = document.createElement('div');
+mobileMenu.className = 'fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out';
+window.toggleMobileSubmenu = function(button) {
+const submenu = button.nextElementSibling;
+const icon = button.querySelector('i');
+if (submenu.classList.contains('hidden')) {
+submenu.classList.remove('hidden');
+icon.style.transform = 'rotate(180deg)';
+} else {
+submenu.classList.add('hidden');
+icon.style.transform = 'rotate(0)';
+}
+};
+mobileMenu.innerHTML = `
+<div class="flex justify-between items-center p-4 border-b">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+<button class="close-menu w-10 h-10 flex items-center justify-center">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<nav class="p-4">
+<ul class="space-y-4">
+<li><a href="#" class="block py-2 text-gray-900 font-medium">Home</a></li>
+<li><a href="#" class="block py-2 text-gray-500">Projects</a></li>
+<li class="relative">
+<button class="flex items-center justify-between w-full py-2 text-gray-500" onclick="toggleMobileSubmenu(this)">
+<span>Groups</span>
+<i class="ri-arrow-down-s-line"></i>
+</button>
+<ul class="hidden pl-4 space-y-2 mt-2">
+<li><a href="#" class="block py-2 text-gray-500">View Groups</a></li>
+<li><a href="#" class="block py-2 text-gray-500">Students</a></li>
+</ul>
+</li>
+<li><a href="#" class="block py-2 text-gray-500">Contact</a></li>
+</ul>
+</nav>
+`;
+document.body.appendChild(mobileMenu);
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.remove('translate-x-full');
+});
+mobileMenu.querySelector('.close-menu').addEventListener('click', function() {
+mobileMenu.classList.add('translate-x-full');
+});
+});
+</script>
+<script id="filterScript">
+document.addEventListener('DOMContentLoaded', function() {
+const filterButtons = document.querySelectorAll('.bg-white.rounded-full button');
+filterButtons.forEach(button => {
+button.addEventListener('click', function() {
+// Remove active class from all buttons
+filterButtons.forEach(btn => {
+btn.classList.remove('bg-primary', 'text-white');
+if (!btn.classList.contains('bg-primary')) {
+btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+}
+});
+// Add active class to clicked button
+this.classList.add('bg-primary', 'text-white');
+this.classList.remove('text-gray-600', 'hover:bg-gray-100');
+// Filter logic would go here
+// For demo purposes, we're just changing the button styles
+});
+});
+});
+</script>
+</body>
+</html>

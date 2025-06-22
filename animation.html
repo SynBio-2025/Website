@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body>
+    from IPython.display import SVG, display
+
+svg_code = '''
+<svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bacterium Body -->
+  <ellipse cx="250" cy="100" rx="80" ry="40" fill="lightgreen" stroke="green" stroke-width="3" />
+  
+  <!-- Glucose Molecule (Moving to Bacterium) -->
+  <circle id="glucose" cx="50" cy="100" r="10" fill="orange">
+    <!-- Moves the glucose molecule continuously from left to right -->
+    <animate attributeName="cx" from="50" to="200" dur="3s" repeatCount="indefinite" />
+    <!-- Makes the glucose fade out (simulate absorption) -->
+    <animate attributeName="opacity" values="1;0" dur="3s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Pathway (Metabolic Pathway) -->
+  <path id="pathway" d="M200 100 C 230 70, 230 130, 270 100" stroke="blue" fill="transparent" stroke-width="2">
+    <animate attributeName="stroke-dashoffset" from="500" to="0" dur="3s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Product Molecules (Simulating ATP exit and movement toward external atom) -->
+  <circle id="product1" cx="270" cy="100" r="8" fill="green">
+    <animate attributeName="cx" from="270" to="320" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="100" to="90" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="3s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product2" cx="270" cy="110" r="8" fill="green">
+    <animate attributeName="cx" from="270" to="320" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="110" to="120" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="3s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product3" cx="270" cy="90" r="8" fill="green">
+    <animate attributeName="cx" from="270" to="320" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="90" to="80" dur="2s" begin="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="3s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- External Atom (Target for Complex Formation) -->
+  <circle id="external_atom" cx="400" cy="100" r="10" fill="blue" />
+
+  <!-- Product Molecules forming a Complex around the External Atom -->
+  <circle id="product_complex1" cx="320" cy="90" r="8" fill="green">
+    <animate attributeName="cx" from="320" to="400" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="90" to="100" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="6s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product_complex2" cx="320" cy="110" r="8" fill="green">
+    <animate attributeName="cx" from="320" to="400" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="110" to="100" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="6s" repeatCount="indefinite" />
+  </circle>
+
+  <circle id="product_complex3" cx="320" cy="80" r="8" fill="green">
+    <animate attributeName="cx" from="320" to="400" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" from="80" to="100" dur="2s" begin="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="6s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Internal Metabolism (Rotation effect inside the bacterium) -->
+  <circle cx="250" cy="100" r="5" fill="red">
+    <animateTransform attributeName="transform" type="rotate" from="0 250 100" to="360 250 100" dur="2s" repeatCount="indefinite" />
+  </circle>
+</svg>
+'''
+
+display(SVG(svg_code))
+</body>
+
+</html>

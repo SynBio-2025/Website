@@ -13,7 +13,7 @@ However with this method you can't directly edit anything yourself. See below to
 Note that some JavaScript requests may not load.
 
 # How to work with the code:
-Here you find a guide on how to install the files to look at the produced website and directly implement changes yourself in VSCode (any newer version, e.g >= 1.60.0), however any other IDE should work:
+Here you find a guide on how to install the files to look at the produced website and directly implement changes yourself in [VSCode](https://code.visualstudio.com/download) (any newer version, e.g >= 1.60.0), however any other IDE should work:
 1. Clone the repository in your Terminal
 ```bash
 git clone https://github.com/SynBio-2025/Website.git
